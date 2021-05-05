@@ -28,7 +28,7 @@ class ElectionData {
         int numvotes = 0;
         for (String s : votes) {
             if (s.equals(forcand))
-                numvotes = numvotes+1;
+                numvotes = numvotes + 1;
         }
         return numvotes;
     }
