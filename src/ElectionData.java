@@ -7,8 +7,6 @@ class ElectionData {
     Scanner keyboard = new Scanner(System.in);
 
     ElectionData() {
-        this.ballot.add("Gompei");
-        this.ballot.add("Husky");
     }
 
     public void printBallot() {
