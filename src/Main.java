@@ -1,13 +1,9 @@
 public class Main {
-    public static void main(String[] args) {
-        ElectionData newBooth = new ElectionData();
-        try {
-            newBooth.screen();
-        }catch(UnknownCandidateException e){
-            //handle
-        }
-        catch (DuplicateVotesException e){
-            //handle
-        }
+    public static void main(String[] args){
+        VotingMachine test = new VotingMachine();
+        test.addWriteIn("Gompei");
+        test.addWriteIn("Husky");
+        test.addWriteIn("Whale");
+        test.startVoting();
     }
 }

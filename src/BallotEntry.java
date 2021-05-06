@@ -14,4 +14,16 @@ public class BallotEntry {
     public void addThirdVote(){
       numThirdVotes++;
     }
+
+    public int getNumFirstVotes() {
+        return numFirstVotes;
+    }
+
+    public int getNumSecondVotes() {
+        return numSecondVotes;
+    }
+
+    public int getNumThirdVotes() {
+        return numThirdVotes;
+    }
 }
