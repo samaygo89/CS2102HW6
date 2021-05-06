@@ -8,8 +8,7 @@ class ElectionData {
     private LinkedList<String> ballot_names = new LinkedList<String>();
     private Scanner keyboard = new Scanner(System.in);
     private int total_votes = 0;
-    ElectionData() {
-    }
+    ElectionData() {}
     public String findWinnerMostFirstVotes(){
         double req_votes_for_win = total_votes/2;
         for(String e: ballot_names){
@@ -20,12 +19,15 @@ class ElectionData {
         }
         return "Runoff required";
     }
+    private int find_points(BallotEntry currBallot){
+        return currBallot.getNumFirstVotes()*3 + currBallot.getNumSecondVotes()*2+currBallot.getNumThirdVotes();
+    }
     public String findWinnerMostPoints(){
         int currMaxPoints = 0;
         String currWinner = "";
         for(String e: ballot_names){
             BallotEntry currBallot = (BallotEntry) ballot.get(e);
-            int currPoints =currBallot.getNumFirstVotes()*3 + currBallot.getNumSecondVotes()*2+currBallot.getNumThirdVotes();
+            int currPoints = find_points(currBallot);
             if(currPoints > currMaxPoints){
                 currMaxPoints = currPoints;
                 currWinner = e;
@@ -67,7 +69,7 @@ class ElectionData {
     }
     public void printBallot() {
         System.out.println("The candidates are: ");
-        ballot.forEach((key,value) -> { System.out.print(key+", "); });
+        ballot.forEach((key,value) -> { System.out.print(key+"\n"); });
     }
 
     public void screen() throws DuplicateVotesException, UnknownCandidateException {
@@ -75,11 +77,12 @@ class ElectionData {
         String ThirdVote;
         String SecondVote;
         this.printBallot();
-        System.out.println("Who do you want to vote for first?");
+        System.out.println("Enter Votes separated by enter key");
         FirstVote = keyboard.next();
-        System.out.println("Who do you want to vote for next?");
+        System.out.print("\n");
         SecondVote = keyboard.next();
-        System.out.println("Who do you want to vote for last?");
+        System.out.print("\n");
+
         ThirdVote = keyboard.next();
         processVote(FirstVote,SecondVote,ThirdVote);
     }

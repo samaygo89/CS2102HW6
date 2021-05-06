@@ -25,7 +25,7 @@ public class VotingMachine {
                     continue;
                 }
             } catch (DuplicateVotesException e) {
-            System.out.println("You may not vote for the same candidate more than once");
+            System.out.println("You may not vote for " +e.getName()+ " more than once");
             continue;
             }
         }
