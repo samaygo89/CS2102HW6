@@ -3,13 +3,16 @@ class CompileCheck {
         Exception e1 = new UnknownCandidateException("gompei");
         Exception e2 = new CandidateExistsException("gompei");
         Exception e3 = new DuplicateVotesException("gompei");
+
         ElectionData ED = new ElectionData();
+
         try {
             ED.addCandidate("a");
             ED.addCandidate("b");
             ED.addCandidate("c");
         } catch (CandidateExistsException e) {
         }
+
         try {
             ED.processVote("a", "b", "c");
         } catch (UnknownCandidateException e) {

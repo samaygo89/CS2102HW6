@@ -1,4 +1,4 @@
-public class UnknownCandidateException extends Exception{
+public class UnknownCandidateException extends Exception {
     private String name;
 
     public String getName() {
