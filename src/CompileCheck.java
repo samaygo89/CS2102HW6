@@ -1,4 +1,5 @@
 class CompileCheck {
+
     public static void main(String[] args) {
         Exception e1 = new UnknownCandidateException("gompei");
         Exception e2 = new CandidateExistsException("gompei");
@@ -15,8 +16,7 @@ class CompileCheck {
 
         try {
             ED.processVote("a", "b", "c");
-        } catch (UnknownCandidateException e) {
-        } catch (DuplicateVotesException e) {
+        } catch (UnknownCandidateException | DuplicateVotesException e) {
         }
         String winner1 = ED.findWinnerMostFirstVotes();
         String winner2 = ED.findWinnerMostPoints();
