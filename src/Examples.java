@@ -125,3 +125,4 @@ public class Examples {
         assertEquals("Husky", election.findWinnerMostFirstVotes());
     }
 }
+
